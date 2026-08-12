@@ -1,0 +1,11 @@
+models -> how to import LLM & chatmodel, then how to invoke them and print result.
+
+prompts -> difference in static or dynamic prompts, then LLm template(not used anymore), and then dynamic templates, then we used
+           Messages (Human, System, AI) and then used placeholders.
+
+Structured_Outputs -> you can format your output using TypeDict, Pydantic, and json structure.
+                    TypeDict ==> you can use typedict to format the output, not cant validate it.
+                    Pydantic ==> you can use Pydantic to also format output, and can validate it.
+                    Json format ==> you can format the output into Json format.
+
+Output_Parsers -> string output parsers, json output parsers, 
