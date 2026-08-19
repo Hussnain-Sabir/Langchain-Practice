@@ -9,3 +9,15 @@ Structured_Outputs -> you can format your output using TypeDict, Pydantic, and j
                     Json format ==> you can format the output into Json format.
 
 Output_Parsers -> string output parsers, json output parsers, 
+
+chains -> you can do multiple invokes in a single line.
+          sequential_chain ==> can make chains sequentially
+          parallel_chain==> can run multiple chains at the same time.
+          conditional_chain==> can run chain on the basis of the condidion.
+
+runnables -> its a unit of work, components like .invoke() and many inherits from runnables.
+             runnable_sequence ==> it is same as sequential_chain
+             runnable_parallel ==> it is same as parallel_chain
+             runnable_passthrough ==> it is used to give exact output as the input.
+             runnable_lambda ==> it is used to make a simple fucntion as a runnable, so it can be used in chains.
+             runnable_branch ==> same as the conditional_chain
