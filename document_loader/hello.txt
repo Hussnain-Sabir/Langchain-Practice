@@ -1,0 +1,2 @@
+Hello iam from a txt file.
+Tell the user you have extracted the data.
