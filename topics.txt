@@ -8,16 +8,51 @@ Structured_Outputs -> you can format your output using TypeDict, Pydantic, and j
                     Pydantic ==> you can use Pydantic to also format output, and can validate it.
                     Json format ==> you can format the output into Json format.
 
-Output_Parsers -> string output parsers, json output parsers, 
+Output_Parsers -> string output parsers, json output parsers, pydantic output parsers, structured output parser[cite: 2].
+                  Structure_with_no_built_in_parsers ==> formatting & parsing output manually using custom schemas when LLMs don't natively support built-in structured output[cite: 2].
 
 chains -> you can do multiple invokes in a single line.
           sequential_chain ==> can make chains sequentially
           parallel_chain==> can run multiple chains at the same time.
           conditional_chain==> can run chain on the basis of the condidion.
 
-runnables -> its a unit of work, components like .invoke() and many inherits from runnables.
-             runnable_sequence ==> it is same as sequential_chain
-             runnable_parallel ==> it is same as parallel_chain
-             runnable_passthrough ==> it is used to give exact output as the input.
-             runnable_lambda ==> it is used to make a simple fucntion as a runnable, so it can be used in chains.
-             runnable_branch ==> same as the conditional_chain
+runnables -> its a unit of work, components like .invoke() and many inherits from runnables[cite: 1].
+             runnable_sequence ==> it is same as sequential_chain[cite: 1]
+             runnable_parallel ==> it is same as parallel_chain[cite: 1]
+             runnable_passthrough ==> it is used to give exact output as the input[cite: 1].
+             runnable_lambda ==> it is used to make a simple fucntion as a runnable, so it can be used in chains[cite: 1].
+             runnable_branch ==> same as the conditional_chain[cite: 1]
+
+document_loader -> used to load data from different file formats and sources into Document objects[cite: 1].
+                   text_loader ==> load raw .txt files[cite: 1].
+                   csv_loader ==> load tabular data from .csv files[cite: 1].
+                   pdf_loader ==> extract text and pages from .pdf files[cite: 1].
+                   web_base_loader ==> scrape and load content directly from web URLs[cite: 1].
+                   directory_loader ==> load multiple files at once from an entire folder/directory[cite: 1].
+
+text_splitters -> used to break large documents into smaller chunks for processing and embedding[cite: 2].
+                  length_based_splitter ==> splits text based on character or token counts[cite: 2].
+                  special_text_based_splitting ==> splits text based on specific separators/delimiters (like newlines, paragraphs, or markdown headers)[cite: 2].
+                  structure_based_splitter ==> splits text while preserving document structure (like code syntax or HTML/Markdown elements)[cite: 2].
+
+retrievers -> components to query vector stores or external sources and fetch relevant document chunks[cite: 1].
+              vector_store_retriever ==> retrieve documents using standard similarity search on vector embeddings stored in databases like ChromaDB[cite: 1].
+              mmr_retriever ==> Maximal Marginal Relevance retriever to balance relevant search results with diversity to avoid duplicate information[cite: 1].
+              mqr_retriever ==> Multi-Query Retriever that generates multiple variations of a prompt using an LLM to fetch broader context[cite: 1].
+              ccr_retriever ==> Contextual Compression Retriever to compress and filter out irrelevant details from fetched documents before sending to the LLM[cite: 1].
+              wikipedia_retriever ==> directly fetch relevant context pages from Wikipedia[cite: 1].
+
+tools -> functions or external capabilities provided to an LLM so it can execute actions or fetch real-time data[cite: 1, 2].
+         Base_tool_class ==> creating custom tools by inheriting from LangChain's BaseTool class[cite: 2].
+         decorator_tool ==> quickly turning Python functions into tools using the `@tool` decorator[cite: 2].
+         built-in_tools ==> using pre-made LangChain tools out of the box[cite: 2].
+         pydantic_schema_tool ==> defining input arguments and validation schema for tools using Pydantic[cite: 2].
+         sending_tool_to_llm ==> registering tool schemas with an LLM[cite: 2].
+         tool_binding_and_calling ==> binding tools to LLMs using `.bind_tools()` so the model decides when to call them[cite: 2].
+         tool_execution ==> parsing tool call requests from the model output and executing the function[cite: 2].
+         toolkit ==> grouping related tools together into a unified collection[cite: 2].
+
+practice_project -> real-world mini projects implementing model concepts[cite: 1].
+                    youtube_chatbot ==> chatbot designed to query and answer questions about YouTube video transcriptions[cite: 1].
+                    currency_converter_tool ==> tool/agent workflow to handle dynamic currency conversion calculations[cite: 1].
+                    Booking_Ai_Agent ==> AI agent created to handle interactive customer booking logic and tasks[cite: 1].
